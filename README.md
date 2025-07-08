@@ -1,5 +1,3 @@
-# Email-extractor-Task3-ALphacode
-Extracts emails from designated folder
 # Email Extractor — CodeAlpha Internship Task 3
 
 This project was created for Task 3 of the CodeAlpha Python Internship program
