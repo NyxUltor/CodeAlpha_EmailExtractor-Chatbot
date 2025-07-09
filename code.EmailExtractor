@@ -1,0 +1,33 @@
+import re #regular expressions module
+
+#ask the user for the filename to read from remember to add .txt as in the example
+filename = input("Enter the name of the .txt file to scan (e.g., data.txt): ")
+
+try:
+    #read the file content
+    with open(filename, 'r') as f:
+        text = f.read()
+
+    #pattern for email addresses
+    email_regex = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+
+    #extracts all matching emails
+    matches = re.findall(email_regex, text)
+
+    if matches:
+        #removes duplicates using sets
+        final_emails = list(set(matches))
+
+        #saves results to a new file
+        with open('emails_found.txt', 'w') as output:
+            for address in final_emails:
+                output.write(address + '\n')
+
+        print("✅ Found", len(final_emails), "email addresses.")
+        print("📁 Saved to 'emails_found.txt'.")
+
+    else: #if there are no emails in the file
+        print("No email addresses found in the file.")
+
+except FileNotFoundError: #in case a file with the name input doesnt exist
+    print("❌ File not found. Please make sure the file exists in the same folder.")
