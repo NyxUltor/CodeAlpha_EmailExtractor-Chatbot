@@ -1,0 +1,59 @@
+import random  #for random replies
+
+def get_bot_reply(user_input):
+    user_input = user_input.lower()  #normalize input
+
+    #known replies
+    if user_input == "hello":
+        return "yo"
+    elif user_input == "how are you":
+        return "im fine just rewatching naruto for the 8th time"
+    elif user_input == "do you watch anime":
+        return "of course i do i was literally trained by kakashi"
+    elif user_input == "favourite anime":
+        return "attack on titan gave me trust issues"
+    elif user_input == "bye":
+        return "maybe one piece was the friends we made on the way"
+    else:
+        #instead of a default message, randomly return quote
+        return random.choice([
+            "im gonna become the next hokage believe it or not",
+            "either you're perfect or you're not me"
+            "I am cell"
+            "KAKAROTTTTTTTTTTT"
+            "The bigger the better"
+            "You are as flat as a chopping board"
+        ])
+
+print("otaku chatbot activated don't panic if it suddenly becomes chaotic, type 'bye' to exit\n")  #intro
+
+while True:  #infinite chat loop
+    user_message = input("You: ")  #get user input
+    reply = get_bot_reply(user_message)  #get bot reply
+    print("Bot:", reply)  #show bot reply
+
+    if user_message.lower() == "bye":
+        print(random.choice([
+        # Death Note
+        "you and i will be parting ways here",  #L
+        "i am justice",  #Light Yagami
+        
+        # Attack on Titan
+        "see you later eren",  #Mikasa
+        "if you win you live if you lose you die if you don’t fight you can’t win",  #Eren
+        "i want to see and understand the world outside",  #Eren
+        
+        # Naruto
+        "farewell sensei",  #Naruto to Jiraiya
+        "a smile is the easiest way out of a difficult situation",  #Sakura(Trash)
+        "those who abandon their friends are worse than scum",  #Kakashi
+        "i wont run away anymore i wont go back on my word that is my ninja way",  #Naruto
+
+        # Dragon Ball Z
+        "you can take control of my mind and my body but there is one thing a saiyan always keeps his pride",  #Vegeta
+        "kakarot you are number one",  #Vegeta
+        "even a low class warrior can surpass an elite with enough training",  #Goku
+        "thank you dragon balls", 
+        "YOU ARE A MENACE TO SOCIETY"
+    ]))
+        break  #exit loop

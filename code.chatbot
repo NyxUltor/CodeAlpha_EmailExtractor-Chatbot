@@ -1,0 +1,23 @@
+def get_bot_reply(user_input): #defines the function
+    user_input = user_input.lower()  #converts input to lowercase
+
+    if user_input == "hello":  #replies to user's messages
+        return "Hi!"
+    elif user_input == "how are you": 
+        return "I'm fine thanks"
+    elif user_input == "bye":
+        return "Goodbye"
+    else:
+        return "I'm not sure how to respond to that"  #default reply for unknown messages
+
+#the following part is where the user interacts
+print("Simple Chatbot (Type 'bye' to exit)\n")  #start message
+
+while True:  #start infinite loop
+    user_message = input("You: ")  #takes user input
+
+    reply = get_bot_reply(user_message)  #gets response using the function
+    print("Bot:", reply)  #prints the reply
+
+    if user_message.lower() == "bye":
+        break  #exits the loop
